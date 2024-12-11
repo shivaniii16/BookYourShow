@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Book Your Show</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-black text-white p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="bookyourshow.png" alt="Company Logo" class="logo me-2" style="width: 50px; height: 50px;">
+            <h1 class="m-0">Book Your Show</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <a href="events.html" class="text-white me-3">Events</a>
+            <a href="signin.html" class="text-white me-3">Sign In</a>
+            <a href="signup.html" class="text-white me-3">Sign Up</a>
+            <a href="contactus.html" class="text-white me-3">Contact Us</a>
+            <a href="review.html" class="text-white">Reviews</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Event Details Section -->
+<section class="container my-5">
+    <h3 class="text-center mb-4">Event Details</h3>
+    <div id="eventDetails" class="text-center">
+        
+    </div>
+    <div class="text-center mt-4">
+        <a href="seatselection.html" class="btn btn-primary">Click here to select your seat</a>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventParam = urlParams.get('event');
+
+    const events = {
+        concert1: {
+            title: "Coldplay",
+            description: "Join us for an amazing concert experience!",
+            date: "Jan 18, 2025",
+            location: "Mumbai",
+            price: "3500"
+            
+        },
+        concert2: {
+            title: "Arijit Singh Show",
+            description: "An unforgettable night of music!",
+            date: "Mar 20, 2025",
+            location: "Amanora Mall, Pune",
+            price: "1000"
+        },
+        sports1: {
+            title: "India vs Pakistan",
+            description: "Catch the excitement live!",
+            date: "May 5, 2025",
+            location: "Wankhede Stadium, Mumbai",
+            price: "1200"
+        },
+        sports2: {
+            title: "Pro Kabaddi League - Puneri Paltan vs Patna Pirates ",
+            description: "Don't miss out on the action!",
+            date: "June 10, 2025",
+            location: "Sports Complex, Patna",
+            price: "700"
+        },
+        drama1: {
+            title: "The  Epic Ramayana",
+            description: "Experience a captivating performance!",
+            date: "July 15, 2025",
+            location: "Marathwada Sanskritik Mandal, Chh.Sambhajinagar",
+            price: "550"
+        },
+        drama2: {
+            title: "Swarajya Rakshak Sambhaji",
+            description: "An evening of drama and entertainment!",
+            date: "Aug 25, 2025",
+            location: "Shivaji Park, Mumbai",
+            price: "800"
+        },
+    };
+
+    if (events[eventParam]) {
+        const event = events[eventParam];
+        document.getElementById('eventDetails').innerHTML = `
+            <h4>${event.title}</h4>
+            <p>${event.description}</p>
+            <p><strong>Show:</strong> ${event.title}</p>
+            <p><strong>Date:</strong> ${event.date}</p>
+            <p><strong>Location:</strong> ${event.location}</p>
+            <p><strong>Price:</strong> ${event.price}</p>
+        `;
+    } else {
+        document.getElementById('eventDetails').innerHTML = "<p>No event found. Please Select Event</p>";
+    }
+</script>
+</body>
+</html>

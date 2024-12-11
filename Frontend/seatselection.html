@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection - Book Your Show</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        #seatChart {
+            display: none; 
+        }
+        .seat-chart {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .seat {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #007bff; 
+            border-radius: 5px;
+            background-color: #fff; 
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s; 
+        }
+        .seat.selected {
+            background-color: #007bff; 
+            color: white; 
+        }
+        .hidden {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-black text-white p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="bookyourshow.png" alt="Company Logo" class="logo me-2" style="width: 50px; height: 50px;">
+            <h1 class="m-0">Book Your Show</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <a href="events.html" class="text-white me-3">Events</a>
+            <a href="signin.html" class="text-white me-3">Sign In</a>
+            <a href="signup.html" class="text-white me-3">Sign Up</a>
+            <a href="contactus.html" class="text-white me-3">Contact Us</a>
+            <a href="review.html" class="text-white">Reviews</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Seat Selection Section -->
+<section class="container my-5">
+    <h3 class="text-center mb-4">Select Your Seat</h3>
+    
+    <div class="text-center mb-4">
+        <label for="rowSelection">Select Row:</label>
+        <select id="rowSelection" class="form-select" onchange="showSeatChart()">
+            <option value="">--Select a Row--</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+        </select>
+    </div>
+
+    <div id="seatChart" class="seat-chart"></div>
+    <div class="text-center">
+        <button id="proceedButton" class="btn btn-primary hidden" onclick="proceedToConfirmation()">Proceed with Selected Seats</button>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // row select karne ke baad seat chart show hoga
+    function showSeatChart() {
+        const row = document.getElementById('rowSelection').value;
+        const seatChartDiv = document.getElementById('seatChart');
+        seatChartDiv.innerHTML = ''; 
+
+        const proceedButton = document.getElementById('proceedButton');
+        if (row) {
+            seatChartDiv.style.display = 'grid'; // seat chart
+            for (let i = 1; i <= 20; i++) {
+                const seat = document.createElement('div');
+                seat.classList.add('seat');
+                seat.textContent = `${row}${i}`;
+                seat.onclick = function() {
+                    seat.classList.toggle('selected');
+                    updateProceedButton();
+                    if (seat.classList.contains('selected')) {
+                        sendSeatToServer(seat.textContent); // select seat backend pe send honge
+                    }
+                };
+                seatChartDiv.appendChild(seat);
+            }
+        } else {
+            seatChartDiv.style.display = 'none'; 
+            proceedButton.classList.add('hidden'); 
+        }
+    }
+
+    // proceed button visisble 
+    function updateProceedButton() {
+        const selectedSeats = document.querySelectorAll('.seat.selected');
+        const proceedButton = document.getElementById('proceedButton');
+        if (selectedSeats.length > 0) {
+            proceedButton.classList.remove('hidden'); 
+        } else {
+            proceedButton.classList.add('hidden'); 
+        }
+    }
+
+    
+    // selected seat to backend
+
+function sendSeatToServer(seatNumber) {
+    console.log('Sending seat to server:', seatNumber); 
+
+    fetch('http://localhost:3000/book-seat', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ seat_number: seatNumber, status: 'booked' }) // Send status as 'booked'
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Seat added to database:', data);
+        alert('Seat selected successfully!');
+    })
+    .catch(error => {
+        console.error('Error adding seat to database:', error);
+    });
+}
+
+    
+    //confirmation page with selected seats
+    function proceedToConfirmation() {
+    const selectedSeats = document.querySelectorAll('.seat.selected');
+    if (selectedSeats.length > 0) {
+        const seatsArray = Array.from(selectedSeats).map(seat => seat.textContent).join(', ');
+
+        // Redirect to confirm_seat.html with selected seats
+        window.location.href = `confirm_seat.html?seats=${encodeURIComponent(seatsArray)}`;
+    } else {
+        alert("Please select at least one seat.");
+    }
+}
+
+
+
+</script>
+</body>
+</html>

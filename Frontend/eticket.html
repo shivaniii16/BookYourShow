@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your E-Ticket - Book Your Show</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-black text-white p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="logo.png" alt="Company Logo" class="logo me-2">
+            <h1 class="m-0">Your Company Name</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <a href="events.html" class="text-white me-3">Events</a>
+            <a href="signin.html" class="text-white me-3">Sign In</a>
+            <a href="signup.html" class="text-white me-3">Sign Up</a>
+            <a href="contactus.html" class="text-white me-3">Contact Us</a>
+            <a href="review.html" class="text-white">Reviews</a>
+        </nav>
+    </div>
+</header>
+
+<!-- E-Ticket Section -->
+<section class="container my-5">
+    <h3 class="text-center">Your E-Ticket</h3>
+    <div class="text-center mb-4">
+        <p style="color: white;"><strong>Booking Confirmation #:</strong> 123456789</p>
+        <p style="color: white;"><strong>Booking Status:</strong> Success</p>
+        <p style="color: white;">Thank you for booking with us!</p>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-danger" onclick="cancelBooking()">Cancel My Booking</button>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    function cancelBooking() {
+        const bookingId = 123456789;  
+        const reason = prompt("Please provide a reason for cancellation:");
+
+        if (reason) {
+            // Send cancellation req to backend
+            fetch('http://localhost:3000/cancel-booking', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ seat_no: bookingId, reason: reason })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`Your booking has been cancelled for the following reason: ${reason}`);
+                window.location.href = 'index.html';  // Redirect to home page 
+            })
+            .catch(error => {
+                console.error('Error cancelling booking:', error);
+                alert("There was an error cancelling your booking. Please try again.");
+            });
+        } else {
+            alert("Cancellation reason is required.");
+        }
+    }
+</script>
+</body>
+</html>

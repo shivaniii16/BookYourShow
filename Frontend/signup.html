@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Book Your Show</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<header class="bg-black text-white p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="bookyourshow.png" alt="Company Logo" class="logo me-2" style="width: 50px; height: 50px;">
+            <h1 class="m-0">Book Your Show</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <a href="events.html" class="text-white me-3">Events</a>
+            <a href="signin.html" class="text-white me-3">Sign In</a>
+            <a href="signup.html" class="text-white me-3">Sign Up</a>
+            <a href="contactus.html" class="text-white me-3">Contact Us</a>
+            <a href="review.html" class="text-white">Reviews</a>
+        </nav>
+    </div>
+</header>
+<body>
+
+<!-- Sign Up Form -->
+<section class="container my-5">
+    <h2 class="text-center mb-4" style="color: white;">Sign Up</h2>
+    <form class="sign-up-form mx-auto" id="signupForm">
+        <div class="mb-3">
+            <label for="fullName" class="form-label" style="color: white;">Full Name</label>
+            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label" style="color: white;">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label" style="color: white;">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label" style="color: white;">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        <p class="text-center mt-3" style="color: white;">Already have an account? <a href="signin.html">Sign In</a></p>
+    </form>
+</section>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        alert('Thank you, your account has been created!'); //  thank you message
+    });
+</script>
+</body>
+</html>
+

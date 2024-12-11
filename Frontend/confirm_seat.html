@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection - Book Your Show</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-black text-white p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="logo.png" alt="Company Logo" class="logo me-2">
+            <h1 class="m-0">Your Company Name</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <a href="events.html" class="text-white me-3">Events</a>
+            <a href="signin.html" class="text-white me-3">Sign In</a>
+            <a href="signup.html" class="text-white me-3">Sign Up</a>
+            <a href="contactus.html" class="text-white me-3">Contact Us</a>
+            <a href="review.html" class="text-white">Reviews</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Seat Selection Section -->
+<section class="container my-5">
+    <h3 class="text-center">Seat Selection</h3>
+
+    <div class="text-center mb-4">
+        <p style="color: white;"><strong>Selected Seats:</strong></p>
+        <div id="selectedSeats"></div>
+    </div>
+
+    <!-- Pay button to redirect to payments page -->
+    <div class="text-center mt-4">
+        <button class="btn btn-success" onclick="goToPaymentPage()">Pay Now</button>
+    </div>
+
+    <!-- Update Seat button to redirect to seat selection page -->
+    <div class="text-center mt-4">
+        <button class="btn btn-warning" onclick="updateSeats()">Update Seat</button>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Function to get the seat numbers from URL
+    function getSeatsFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedSeats = urlParams.get('seats');  // Get the seats parameter from the URL
+        return selectedSeats ? selectedSeats.split(',') : [];  // Split if multiple seats selected
+    }
+
+    // Display selected seats on the page
+    function displaySelectedSeats() {
+        const seats = getSeatsFromURL();
+        const selectedSeatsDiv = document.getElementById('selectedSeats');
+        if (seats.length > 0) {
+            selectedSeatsDiv.textContent = seats.join(', ');  // Join the seat numbers into a comma-separated string
+        } else {
+            selectedSeatsDiv.textContent = 'No seats selected.';
+        }
+    }
+
+    // Call the function to display the seats on page load
+    window.onload = function() {
+        displaySelectedSeats();
+    };
+
+    // Function to redirect to the payment page
+    function goToPaymentPage() {
+        window.location.href = "payment.html";  // Redirect to the payment page
+    }
+
+    // Function to redirect back to the seat selection page
+    function updateSeats() {
+        window.location.href = "seatselection.html";  // Redirect to the seat selection page
+    }
+</script>
+</body>
+</html>

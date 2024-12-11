@@ -1,0 +1,824 @@
+/* Home Page CSS - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color:#3B1C32;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #000;
+    color: #fff;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 500;
+    
+}
+
+header nav a:hover {
+    color: #ddd;
+}
+
+/* Company Info Section */
+section.container.text-center.my-5 {
+    padding: 2rem 0;
+    background-color: #000;
+}
+
+section.container.text-center.my-5 h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+section.container.text-center.my-5 p {
+    font-size: 1.1rem;
+    color: white;
+}
+
+/* Categories grid styling */
+
+.container .row.text-center .col-md-4 {
+    padding: 15px;
+}
+
+/* Category grid item styling */
+.container .row.text-center .col-md-4 img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+.container .row.text-center .col-md-4:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Text styling for category title */
+.container .row.text-center .col-md-4 h5 {
+    color: white; 
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Text styling for category description */
+.container .row.text-center .col-md-4 p {
+    color:white;
+    font-size: 0.9rem;
+}
+
+/* Background color for the entire section */
+section.container.my-5 {
+    background-color: #3B1C32; 
+    border-radius: 10px;
+    padding: 30px 0;
+}
+
+/* Spacing around the grid elements */
+.container .row.text-center .col-md-4 {
+    margin-bottom: 30px;
+}
+
+/* Category heading hover effect */
+.container .row.text-center .col-md-4 h5:hover {
+    color: #FFC107; /* Light color on hover */
+    transition: color 0.3s ease;
+}
+
+/* Add more padding for small screens */
+@media (max-width: 767px) {
+    .container .row.text-center .col-md-4 {
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+}
+
+
+/* Upcoming Events Section */
+section.container.my-5 {
+    padding: 3rem 0;
+}
+
+section.container.my-5 h3 {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card .card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+.card .btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-weight: 500;
+}
+
+.card .btn-primary:hover {
+    background-color: #0056b3;
+    border: none;
+}
+
+/* Footer Styling (Optional) */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+
+/* Sign In Page CSS - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* Dark background for contrast */
+    color: white; /* Default text color set to white */
+    margin: 0;
+    padding: 0;
+}
+
+/* Sign In Form Section */
+.container.my-5 {
+    max-width: 400px;
+    padding: 2rem;
+    background-color: white; /* Slightly lighter dark background for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 5rem;
+}
+
+.sign-in-form h2 {
+    font-size: 2rem;
+    color: white !important; /* Force the heading color to be white */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+
+
+.sign-in-form .form-label {
+    font-weight: 500;
+    color: white !important; /* Label color set to white */
+}
+
+.sign-in-form .form-control {
+    height: 45px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.sign-in-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.sign-in-form .btn-primary {
+    height: 45px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.sign-in-form p {
+    font-size: 0.9rem;
+    color: white !important; /* Paragraph text set to white */
+}
+
+.sign-in-form a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+}
+
+.sign-in-form a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Sign Up Page CSS - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sign Up Form Section */
+.container.my-5 {
+    max-width: 450px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 4rem;
+}
+
+.container.my-5 h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.sign-up-form .form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+.sign-up-form .form-control {
+    height: 45px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.sign-up-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.sign-up-form .btn-primary {
+    height: 45px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sign-up-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.sign-up-form p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.sign-up-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.sign-up-form a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Us Page CSS - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header.bg-dark {
+    background-color: #343a40;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+header nav a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffc107;
+}
+
+/* Contact Us Section */
+.container.my-5 {
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 4rem;
+}
+
+.container h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.container h5 {
+    font-size: 1.25rem;
+    color: #555;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* Contact Info Styling */
+.container p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.container a.text-decoration-none {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.container a.text-decoration-none:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Contact Form Styling */
+#contactForm .form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+#contactForm .form-control {
+    height: 45px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#contactForm .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+#contactForm .btn-primary {
+    height: 45px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+#contactForm .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Payment Page CSS - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header.bg-black {
+    background-color:#3B1C32;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+header nav a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffc107;
+}
+
+
+
+/* Payment Section Styling */
+.container.my-5.text-center {
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 4rem;
+}
+
+#paymentSection h3 {
+    font-size: 1.75rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#paymentSection p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+#paymentForm .form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+#paymentForm .form-control {
+    height: 45px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#paymentForm .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+#paymentForm .btn-primary {
+    height: 45px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+#paymentForm .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Confirmation Message Styling */
+#confirmationMessage h4 {
+    font-size: 1.5rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#confirmationMessage p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+#confirmationMessage .btn-primary {
+    height: 45px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#confirmationMessage .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Seat Selection Page - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-left: 10px;
+}
+
+header nav a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffc107;
+}
+
+/* Seat Selection Section */
+h3.text-center.mb-4 {
+    font-size: 1.75rem;
+    color: #343a40;
+    font-weight: bold;
+}
+
+#rowSelection {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.seat-chart {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+    
+}
+
+.seat {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.seat:hover {
+    background-color: #e9ecef;
+    border-color: #0056b3;
+}
+
+.seat.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Proceed Button */
+#proceedButton {
+    max-width: 250px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+
+/* Confirm Seat Page - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-left: 10px;
+}
+
+header nav a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffc107;
+}
+
+/* Confirmation Section */
+h3.text-center {
+    font-size: 1.75rem;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+#selectedSeats {
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: 500;
+    padding: 15px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    background-color: #e9f5ff;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+button.btn-primary {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+button.btn-secondary {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+/* E-Ticket Page - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    background-color: #f8f9fa; /* Light background color for the body */
+}
+
+/* Header */
+header h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-left: 10px;
+}
+
+header nav a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffc107; /* Yellow on hover */
+}
+
+/* E-Ticket Section */
+h3.text-center {
+    font-size: 2rem; /* Larger font size for the title */
+    color: #343a40; /* Dark color for the title */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 20px;
+}
+
+.text-center p {
+    font-size: 1.2rem; /* Font size for ticket details */
+    color: #495057; /* Medium gray for text */
+    margin: 10px 0; /* Margin for spacing */
+}
+
+button.btn-danger {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px; /* Padding for buttons */
+    transition: background-color 0.3s ease; /* Smooth transition for button color */
+}
+
+button.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+
+/* Reviews Page - Online Ticket Booking System */
+
+/* General Styling */
+body {
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+/* Header */
+header {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for the header */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+
+/* Reviews Section */
+h2.text-center {
+    font-size: 2.5rem; /* Larger font size for the title */
+    color: #343a40; /* Dark color for the title */
+    font-weight: bold;
+    margin-bottom: 30px; /* Increased margin for better spacing */
+}
+
+.card {
+    border: 1px solid #dee2e6; /* Light border for cards */
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.5rem; /* Larger title size */
+    color: #007bff; /* Primary color for titles */
+}
+
+/* Star Ratings */
+.text-warning {
+    font-size: 1.2rem; /* Increase star size */
+}
+
+/* Card Text */
+.card-text {
+    font-size: 1rem; /* Adjust text size */
+    color: #495057; /* Dark gray for card text */
+}
+
+/* Events Page - Online Ticket Booking System */
+
+/* Header */
+header {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for header */
+}
+
+header h1 {
+    font-size: 2rem; /* Larger font size */
+}
+
+/* Event Details Section */
+h3 {
+    font-size: 2.5rem; /* Larger heading for event details */
+    color: #343a40; /* Dark color for headers */
+}
+
+#eventDetails {
+    background-color: #ffffff; /* White background for event details */
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 20px; /* Padding around details */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff; /* Border color matching button */
+    padding: 10px 20px; /* Padding for button */
+    font-size: 1.2rem; /* Larger button text */
+}
+
+/* Additional Styling for better spacing */
+p {
+    margin: 10px 0; /* Spacing between paragraphs */
+}

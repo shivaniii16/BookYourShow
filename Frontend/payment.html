@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Book Your Show</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-black text-white p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="bookyourshow.png" alt="Company Logo" class="logo me-2" style="width: 50px; height: 50px;">
+            <h1 class="m-0">Book Your Show</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <a href="events.html" class="text-white me-3">Events</a>
+            <a href="signin.html" class="text-white me-3">Sign In</a>
+            <a href="signup.html" class="text-white me-3">Sign Up</a>
+            <a href="contactus.html" class="text-white me-3">Contact Us</a>
+            <a href="review.html" class="text-white">Reviews</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Payment Section -->
+<section class="container my-5 text-center" style="color: white;">
+    <div id="paymentSection" style="color: white;">
+        <h3 class="mb-4" style="color: white;">Payment</h3>
+        <p style="color: white;">Please enter your  card details to complete your booking:</p>
+
+        <form id="paymentForm" onsubmit="return false;">
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label" style="color: white;">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardExpiry" class="form-label" style="color: white;">Expiry Date (MM/YY)</label>
+                <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardCVC" class="form-label" style="color: white;">CVC</label>
+                <input type="text" class="form-control" id="cardCVC" placeholder="123" required>
+            </div>
+            <button class="btn btn-primary" onclick="processPayment()">Pay</button>
+        </form>
+    </div>
+
+    <!-- Confirmation Message -->
+    <div id="confirmationMessage" class="hidden mt-4">
+        <h4 class="text-success">Booking Confirmed!</h4>
+        <p style="color: white;">Your payment has been successfully processed. Thank you for booking with us!</p>
+        <a href="eticket.html" class="btn btn-primary">Click Here to View Your E-Ticket</a>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    
+    function processPayment() {
+    // Get payment details
+    const cardNumber = document.getElementById('cardNumber').value;
+    const cardExpiry = document.getElementById('cardExpiry').value;
+    const cardCVC = document.getElementById('cardCVC').value;
+
+    // Simple validation
+    if (cardNumber && cardExpiry && cardCVC) {
+        
+        setTimeout(() => {
+            
+            document.getElementById('paymentSection').style.display = 'none';
+            //confirmation message
+            document.getElementById('confirmationMessage').classList.remove('hidden');
+
+            
+            const eventName = getQueryParam('event'); // Get from URL
+            const selectedSeat = getQueryParam('seat'); // Get from URL
+
+            // Redirect to e-ticket page with event and seat details
+            setTimeout(() => {
+                window.location.href = `eticket.html?event=${encodeURIComponent(eventName)}&seat=${encodeURIComponent(selectedSeat)}`;
+            }, 2000);
+        }, 1000);
+    } else {
+        alert("Please fill in all fields correctly.");
+    }
+}
+
+    
+</script>
+<style>
+    .hidden {
+        display: none; 
+    }
+</style>
+</body>
+</html>
